@@ -1,8 +1,9 @@
-import ExpenseItem from "./ExpenseItem";
+
 import Card from "../ui/Card";
 import './Expenses.css';
 import ExpenseFilter from "./ExpenseFilter";
 import {useState} from "react";
+import ExpensesList from "./ExpensesList";
 
 export default function Expenses({items}) {
 
@@ -11,6 +12,9 @@ export default function Expenses({items}) {
     const filterChangeHandler = selectedYear => {
         setFilteredYear(selectedYear);
     };
+    console.log('type of')
+    console.log(typeof items)
+    console.log(items)
 
     const filteredExpenses = items.filter(item => {
         return item.date.getFullYear().toString() === filteredYear;
@@ -35,12 +39,12 @@ export default function Expenses({items}) {
         <Card className='expenses'>
             <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
             {/*{expensesContent}*/}
-            {filteredExpenses.length === 0 ? <p>No data available !!</p> : filteredExpenses.map(item =>
-                // <div key={item.id}>
-                //     <ExpenseItem title={item.title} amount={item.amount} date={item.date}/>
-                // </div>
-                <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date}/>
-            ) }
+            {/*{filteredExpenses.length === 0 ? <p>No data available !!</p> : filteredExpenses.map(item =>*/}
+            {/*    // <div key={item.id}>*/}
+            {/*    //     <ExpenseItem title={item.title} amount={item.amount} date={item.date}/>*/}
+            {/*    // </div>*/}
+            {/*    <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date}/>*/}
+            {/*) }*/}
 
             {/*Code without conditional rendering*/}
             {/*{filteredExpenses.map(item =>*/}
@@ -49,6 +53,7 @@ export default function Expenses({items}) {
             {/*    // </div>*/}
             {/*    <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date}/>*/}
             {/*)}*/}
+            <ExpensesList itemsList={filteredExpenses}/>
         </Card>
     )
 }
