@@ -14,11 +14,12 @@ export default function Expenses({items}) {
 
     return (
         <Card className='expenses'>
-            <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+            <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
             {items.map(item =>
-                <div key={item.id}>
-                    <ExpenseItem title={item.title} amount={item.amount} date={item.date}/>
-                </div>
+                // <div key={item.id}>
+                //     <ExpenseItem title={item.title} amount={item.amount} date={item.date}/>
+                // </div>
+                <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date}/>
             )}
         </Card>
     )
