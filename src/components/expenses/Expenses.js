@@ -4,6 +4,7 @@ import './Expenses.css';
 import ExpenseFilter from "./ExpenseFilter";
 import {useState} from "react";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 export default function Expenses({items}) {
 
@@ -53,6 +54,7 @@ export default function Expenses({items}) {
             {/*    // </div>*/}
             {/*    <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date}/>*/}
             {/*)}*/}
+            <ExpensesChart expenses={filteredExpenses}/>
             <ExpensesList itemsList={filteredExpenses}/>
         </Card>
     )
